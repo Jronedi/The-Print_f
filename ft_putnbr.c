@@ -6,17 +6,17 @@
 /*   By: mojarone <mojarone@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 14:42:38 by mojarone          #+#    #+#             */
-/*   Updated: 2026/11/24 17:45:03 by mojarone         ###   ########.fr       */
+/*   Updated: 2026/11/25 18:36:50 by mojarone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_print.h"
+#include "ft_printf.h"
 
 int	ft_putnbr(int nb)
 {
-	int re;
-	re = 0;
+	int	re;
 
+	re = 0;
 	if (nb == -2147483648)
 		return (write(1, "-2147483648", 11));
 	if (nb < 0)
@@ -24,7 +24,6 @@ int	ft_putnbr(int nb)
 		re += write(1, "-", 1);
 		nb *= -1;
 	}
-
 	if (nb > 9)
 	{
 		re += ft_putnbr(nb / 10);

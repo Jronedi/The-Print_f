@@ -6,15 +6,16 @@
 /*   By: mojarone <mojarone@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 15:05:03 by mojarone          #+#    #+#             */
-/*   Updated: 2026/11/24 17:45:20 by mojarone         ###   ########.fr       */
+/*   Updated: 2026/11/25 18:41:54 by mojarone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_print.h"
+#include "ft_printf.h"
 
 int	ft_putunbr(unsigned int nb)
 {
-	unsigned int re;
+	unsigned int	re;
+
 	re = 0;
 	if (nb > 9)
 	{

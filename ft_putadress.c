@@ -6,16 +6,16 @@
 /*   By: mojarone <mojarone@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 16:10:17 by mojarone          #+#    #+#             */
-/*   Updated: 2026/11/24 17:44:37 by mojarone         ###   ########.fr       */
+/*   Updated: 2026/11/25 18:39:07 by mojarone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_print.h"
+#include "ft_printf.h"
 
 int	ft_putadress(unsigned long nb)
 {
-	int re;
-	char *base;
+	int		re;
+	char	*base;
 
 	re = 0;
 	base = "0123456789abcdef";
