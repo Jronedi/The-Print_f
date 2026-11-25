@@ -6,11 +6,11 @@
 #    By: mojarone <mojarone@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/25 18:07:13 by mojarone          #+#    #+#              #
-#    Updated: 2026/11/25 18:19:49 by mojarone         ###   ########.fr        #
+#    Updated: 2026/11/25 18:52:01 by mojarone         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ft_printf.a
+NAME = libftprintf.a
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror

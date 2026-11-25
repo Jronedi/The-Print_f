@@ -6,7 +6,7 @@
 /*   By: mojarone <mojarone@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/25 17:02:25 by mojarone          #+#    #+#             */
-/*   Updated: 2026/11/25 18:27:22 by mojarone         ###   ########.fr       */
+/*   Updated: 2026/11/25 19:50:55 by mojarone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	ft_check(va_list args, char c)
 		re += ft_putadress(va_arg(args, unsigned long));
 	}
 	else if (c == 'u')
-		re = ft_putnbr(va_arg(args, unsigned int));
+		re = ft_putunbr(va_arg(args, unsigned int));
 	else if (c == '%')
 		return (ft_putchar('%'));
 	return (re);

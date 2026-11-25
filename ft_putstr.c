@@ -6,7 +6,7 @@
 /*   By: mojarone <mojarone@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 14:23:30 by mojarone          #+#    #+#             */
-/*   Updated: 2026/11/25 18:41:48 by mojarone         ###   ########.fr       */
+/*   Updated: 2026/11/25 19:45:42 by mojarone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int	ft_putstr(char *str)
 		return (write(1, "(null)", 6));
 	while (str[i])
 	{
-		write(1, &str[i], 1);
+		if (write(1, &str[i], 1) == -1)
+			return (-1);
 		i++;
 	}
 	return (i);
