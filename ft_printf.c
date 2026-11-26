@@ -6,7 +6,7 @@
 /*   By: mojarone <mojarone@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/25 17:02:25 by mojarone          #+#    #+#             */
-/*   Updated: 2026/11/25 19:50:55 by mojarone         ###   ########.fr       */
+/*   Updated: 2026/11/26 18:14:30 by mojarone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static int	ft_check(va_list args, char c)
 {
 	int	re;
+	int	adr;
 
 	re = 0;
 	if (c == 'd' || c == 'i')
@@ -30,12 +31,19 @@ static int	ft_check(va_list args, char c)
 	else if (c == 'p')
 	{
 		re = ft_putstr("0x");
-		re += ft_putadress(va_arg(args, unsigned long));
+		if (re == -1)
+			return (-1);
+		adr = ft_putadress(va_arg(unsigned int)(args, *void));
+		if (adr == -1)
+			return (-1);
+		re += adr;
 	}
 	else if (c == 'u')
 		re = ft_putunbr(va_arg(args, unsigned int));
 	else if (c == '%')
 		return (ft_putchar('%'));
+	if (re == -1)
+		return (-1);
 	return (re);
 }
 
@@ -44,6 +52,7 @@ int	ft_printf(const char *str, ...)
 	int		i;
 	va_list	args;
 	int		re;
+	int		written;
 
 	if (str == NULL)
 		return (-1);
@@ -52,13 +61,13 @@ int	ft_printf(const char *str, ...)
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] == '%')
-		{
-			if (str[i + 1] != '\0')
-				re += ft_check(args, str[++i]);
-		}
+		if (str[i] == "%" && str[i + 1] != '\0')
+			written = ft_check(args, str[++i]);
 		else
-			re += ft_putchar(str[i]);
+			written = ft_putchar(str[i]);
+		if (written == -1)
+			return (va_end(args), -1);
+		re += written;
 		i++;
 	}
 	va_end(args);
