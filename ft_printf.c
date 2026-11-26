@@ -6,7 +6,7 @@
 /*   By: mojarone <mojarone@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/25 17:02:25 by mojarone          #+#    #+#             */
-/*   Updated: 2026/11/26 18:14:30 by mojarone         ###   ########.fr       */
+/*   Updated: 2026/11/26 18:45:02 by mojarone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	ft_check(va_list args, char c)
 		re = ft_putstr("0x");
 		if (re == -1)
 			return (-1);
-		adr = ft_putadress(va_arg(unsigned int)(args, *void));
+		adr = ft_putadress((unsigned long)(va_arg(args, void *)));
 		if (adr == -1)
 			return (-1);
 		re += adr;
@@ -61,7 +61,7 @@ int	ft_printf(const char *str, ...)
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] == "%" && str[i + 1] != '\0')
+		if (str[i] == '%' && str[i + 1] != '\0')
 			written = ft_check(args, str[++i]);
 		else
 			written = ft_putchar(str[i]);
