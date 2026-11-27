@@ -6,7 +6,7 @@
 /*   By: mojarone <mojarone@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 14:42:38 by mojarone          #+#    #+#             */
-/*   Updated: 2026/11/27 17:10:46 by mojarone         ###   ########.fr       */
+/*   Updated: 2026/11/27 17:25:31 by mojarone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,28 +22,20 @@ int	ft_putnbr(int nb)
 	nbr = nb;
 	if (nbr < 0)
 	{
-		helper = ft_putchar('-');
-		if (helper == -1)
+		if (ft_putchar('-') == -1)
 			return (-1);
-		re += helper;
+		re++;
 		nbr *= -1;
 	}
 	if (nbr > 9)
 	{
-		re = ft_putnbr(nbr / 10);
-		if (re == -1)
-			return (-1);
-		helper = ft_putnbr(nbr % 10);
+		helper = ft_putnbr(nbr / 10);
 		if (helper == -1)
 			return (-1);
 		re += helper;
 	}
-	else
-	{
-		helper = ft_putchar(nbr + 48);
-		if (helper == -1)
-			return (-1);
-		re += helper;
-	}
+	if (ft_putchar((nbr % 10) + '0') == -1)
+		return (-1);
+	re++;
 	return (re);
 }
