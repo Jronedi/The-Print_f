@@ -6,7 +6,7 @@
 /*   By: mojarone <mojarone@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/24 17:38:05 by mojarone          #+#    #+#             */
-/*   Updated: 2026/11/25 18:38:08 by mojarone         ###   ########.fr       */
+/*   Updated: 2026/11/27 17:12:20 by mojarone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdarg.h>
 # include <unistd.h>
 
-int	ft_putadress(unsigned long nb);
+int	ft_putadress(void *nb);
 int	ft_putchar(char c);
 int	ft_puthexlower(unsigned int nb);
 int	ft_puthexupper(unsigned int nb);

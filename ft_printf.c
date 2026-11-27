@@ -6,7 +6,7 @@
 /*   By: mojarone <mojarone@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/25 17:02:25 by mojarone          #+#    #+#             */
-/*   Updated: 2026/11/26 18:45:02 by mojarone         ###   ########.fr       */
+/*   Updated: 2026/11/27 17:06:31 by mojarone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 static int	ft_check(va_list args, char c)
 {
 	int	re;
-	int	adr;
 
 	re = 0;
 	if (c == 'd' || c == 'i')
@@ -29,15 +28,7 @@ static int	ft_check(va_list args, char c)
 	else if (c == 'X')
 		re = ft_puthexupper(va_arg(args, unsigned int));
 	else if (c == 'p')
-	{
-		re = ft_putstr("0x");
-		if (re == -1)
-			return (-1);
-		adr = ft_putadress((unsigned long)(va_arg(args, void *)));
-		if (adr == -1)
-			return (-1);
-		re += adr;
-	}
+		re = ft_putadress((va_arg(args, void *)));
 	else if (c == 'u')
 		re = ft_putunbr(va_arg(args, unsigned int));
 	else if (c == '%')
@@ -63,6 +54,8 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%' && str[i + 1] != '\0')
 			written = ft_check(args, str[++i]);
+		else if (str[i] == '%' && str[i + 1] == '\0')
+			return (-1);
 		else
 			written = ft_putchar(str[i]);
 		if (written == -1)
